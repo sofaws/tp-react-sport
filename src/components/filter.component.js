@@ -31,7 +31,6 @@ const filter = {
 };
 
 const filterContainer = {
-    overflowY: 'auto',
 }
 
 const show = {
@@ -97,7 +96,6 @@ class Filter extends Component {
     }
 
     render() {
-        // const { selectedOption } = this.state;
         let filter_class = this.state.show ? show : notShow;
         let icon_toggle = this.state.show ? iconClose : iconFilter;
         const { selectedOption } = this.state;
@@ -113,9 +111,8 @@ class Filter extends Component {
                     <FilterDropdown options={this.state.activities} nomDropdown="Type d'équipement" />
                     <FilterDropdown options={this.state.level} nomDropdown='Niveau' />
                 </div>
-                <div style={toggleButton} onClick={this.toggleFilter.bind(this)}>
+                <div style={toggleButton} onClick={this.toggleFilter.bind(this)} >
                     { icon_toggle}
-                    {/* <Icon icon={ic_filter_list} /> */}
                 </div>
             </div>
         );
