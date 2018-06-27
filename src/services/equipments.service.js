@@ -15,7 +15,7 @@ export async function get(rsc) {
 }
 
 export async function getMarkers(rsc, params) {
-    return fetch(`${config.api}/${rsc}${"?city=Bréval&activity=Tennis&level=Scolaire"}`, {
+    return fetch(`${config.api}/${rsc}?city=${params.city}&activity=${params.activity}&level=${params.level}`, {
         headers,
         method: 'GET',
     })

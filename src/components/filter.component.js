@@ -29,50 +29,41 @@ const filter = {
 
 const filterContainer = {
     overflowY: 'auto',
-}
+};
 
 class Filter extends Component {
     state = {
         selectedOption: '',
         departments: [],
-        city: [],
-        level: [],
+        cities: [],
+        levels: [],
         activities: [],
     };
 
     async componentDidMount() {
         const departments = await get('departments');
-        const city = await get('city');
-        const level = await get('level');
+        const cities = await get('city');
+        const levels = await get('level');
         const activities = await get('activities');
         this.setState({
             departments,
-            city,
-            level,
+            cities,
+            levels,
             activities
         })
     }
 
-    handleChange = (selectedOption) => {
-        this.setState({ selectedOption });
-        // selectedOption can be null when the `x` (close) button is clicked
-        if (selectedOption) {
-            console.log(`Selected: ${selectedOption.label}`);
-        }
-    };
-
     render() {
-        const { selectedOption } = this.state;
         console.log(this.state.level)
         return (
             <div style={filter}>
                 <img src={logo} className="App-logo" alt="logo" />
                 <h1 className="App-title">We Analyse</h1>
                 <div style={filterContainer}>
-                    <FilterDropdown options={this.state.city} nomDropdown='Ville' />
-                    <FilterDropdown options={this.state.departments} nomDropdown='Département' />
-                    <FilterDropdown options={this.state.activities} nomDropdown='Type' />
-                    <FilterDropdown options={this.state.level} nomDropdown='Niveau' />
+                    {/* <FilterDropdown value={this.props.city} name={"city"} onChange={this.props.onChange} options={this.state.cities} nomDropdown='Ville' />*/}
+                    <FilterDropdown value={this.props.department} name={"department"} onChange={this.props.onChange} options={this.state.departments} nomDropdown='Département' />
+                    <FilterDropdown value={this.props.activity} name={"activity"} onChange={this.props.onChange} options={this.state.activities} nomDropdown='Type' />
+                    <FilterDropdown value={this.props.level} name={"level"} onChange={this.props.onChange} options={this.state.levels} nomDropdown='Niveau' />
                 </div>
             </div>
         );
