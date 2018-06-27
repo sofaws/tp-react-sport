@@ -1,14 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Galada');
+
 .App {
   text-align: center;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  /* animation: App-logo-spin infinite 20s linear; */
+  height: 50px;
 }
 
 .App-title {
-  font-size: 1.5em;
+  font-size: 1.1em;
+  border-bottom: dashed 1px #ddd;
+  padding-bottom: 10px;  
 }
 
 .App-intro {

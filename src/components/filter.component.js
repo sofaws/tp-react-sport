@@ -9,14 +9,16 @@ const filter = {
     boxShadow: '0 3px 4px rgba(0,0,0,0.2)',
     left: 30,
     zIndex: 100,
-    height: 'calc(100% - 130px)',
+    // height: 'calc(100% - 130px)',
     marginTop: 60,
-    minWidth: '210px',
+    minWidth: '250px',
     marginBottom: 30,
-    padding: 20,
+    paddingTop: '20px',
+    paddingBottom: '20px',
     display: 'flex',
     flexDirection: 'column',
-    flex: 1
+    flex: 1,
+    fontFamily: 'Galada'
 };
 
 class Filter extends Component {
