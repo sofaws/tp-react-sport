@@ -1277,7 +1277,7 @@ callsites@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/callsites/-/callsites-2.0.0.tgz#06eb84f00eea413da86affefacbffb36093b3c50"
 
-camel-case@3.0.x:
+camel-case@3.0.x, camel-case@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/camel-case/-/camel-case-3.0.0.tgz#ca3c3688a4e9cf3a4cda777dc4dcbc713249cf73"
   dependencies:
@@ -5629,6 +5629,13 @@ react-google-maps@^9.4.5:
     recompose "^0.26.0"
     scriptjs "^2.5.8"
     warning "^3.0.0"
+
+react-icons-kit@^1.1.5:
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/react-icons-kit/-/react-icons-kit-1.1.5.tgz#e8103015a0292e9900a2fe071c6cb9ca50d76ae2"
+  dependencies:
+    camel-case "^3.0.0"
+    prop-types "^15.5.8"
 
 react-input-autosize@^2.1.2:
   version "2.2.1"
