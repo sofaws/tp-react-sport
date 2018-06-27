@@ -5,9 +5,8 @@ const headers = {
     'Content-Type': 'application/json',
 };
 
-export async function get(rsc, params) {
-
-    return fetch(`${config.api}/${rsc}${"?city=Bréval&activity=Tennis&level=Scolaire"}`, {
+export async function get(rsc) {
+    return fetch(`${config.api}/${rsc}`, {
         headers,
         method: 'GET',
     })
@@ -15,3 +14,16 @@ export async function get(rsc, params) {
         .then(res => res);
 }
 
+export async function getMarkers(rsc, params) {
+    let filter = "";
+    if(params.city !== null) filter += "city=" + params.city + "&";
+    if(params.activity !== null) filter += "activity=" + params.activity + "&";
+    if(params.level !== null) filter += "level=" + params.level;
+
+    return fetch(`${config.api}/${rsc}?${filter}`, {
+        headers,
+        method: 'GET',
+    })
+        .then((response) => response.json())
+        .then(res => res);
+}

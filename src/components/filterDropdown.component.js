@@ -7,7 +7,7 @@ const filterCtn = {
     flexDirection: 'row',
     flexWrap: 'nowrap',
     fontFamily: 'Roboto',
-    flex: 1,    
+    flex: 1,
     padding: '0 20px',
     marginTop: '15px',
 };
@@ -39,31 +39,25 @@ const menuContainerStyle = {
 };
 
 class FilterDropdown extends Component {
-    state = {
-        selectedOption: '',
-    }
-    
+
     handleChange = (selectedOption) => {
-        this.setState({ selectedOption });
+        this.props.onChange(this.props.name, selectedOption ? selectedOption.value : null);
         if (selectedOption) {
             console.log(`Selected: ${selectedOption.label}`);
         }
-    }
+    };
 
     render() {
-        const { selectedOption } = this.state;
-
         return (
             <div style={filterCtn}>
                 <div style={labelFilter}>{this.props.nomDropdown}</div>
                 <Select
                     name="form-field-name"
-                    value={selectedOption}
+                    value={this.props.value}
                     onChange={this.handleChange}
-                    options={[
-                    { value: 'one', label: 'One' },
-                    { value: 'two', label: 'Two' },
-                    ]}
+                    options={ this.props.options.map((element) => {
+                        return { value: element, label: element }
+                    })}
                     style={selectStyle}
                     wrapperStyle={wrapperStyle}
                     menuStyle={menuStyle}
