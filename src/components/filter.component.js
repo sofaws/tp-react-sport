@@ -53,7 +53,8 @@ const toggleButton = {
     alignItems: 'center',
     boxShadow: '1px 2px 2px rgba(0,0,0,0.2)',
     zIndex: '-1',
-}
+    cursor: 'pointer'
+};
 
 const iconFilter = <Icon icon={ic_filter_list} />;
 const iconClose = <Icon icon={ic_close} />;
