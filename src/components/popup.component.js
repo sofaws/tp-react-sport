@@ -1,7 +1,8 @@
 import React, {Component} from "react";
+import InputText from "./inputText.component";
 
 const container = {
-    backgroundColor: "rgba(0, 0, 0, 0.8)",
+    backgroundColor: "rgba(0, 0, 0, 0.4)",
     zIndex: 200,
     position: 'absolute',
     top: 0,
@@ -16,11 +17,17 @@ const container = {
 
 const popup = {
     backgroundColor: 'white',
-    height: 400,
+    padding: '30px 0',
+    maxHeight: '400px',  
     width: 400,
-    borderRadius: "6px 6px 3px 3px;"
+    borderRadius: "3px",
+    boxShadow: '0 2px 100px rgba(0,0,0,0.6)',
 };
 
+const popupTitle = {
+    fontSize: '1.2em',
+    fontFamily: 'El Messiri',
+};
 
 class Popup extends Component {
 
@@ -28,7 +35,10 @@ class Popup extends Component {
         return this.props.visible ?
             <div style={container} onClick={this.props.onClose}>
                 <div style={popup} onClick={(e) => e.stopPropagation()}>
-                    <p>test</p>
+                    <div style={popupTitle}>Créer votre événement</div>
+                    <InputText name="Ville"/>
+                    <InputText name="Type d'événement"/>
+                    <InputText name="Niveau"/>
                 </div>
             </div>
             : null
