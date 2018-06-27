@@ -30,7 +30,6 @@ const filter = {
 };
 
 const filterContainer = {
-    overflowY: 'auto',
 };
 
 

@@ -41,7 +41,7 @@ const menuContainerStyle = {
 class FilterDropdown extends Component {
 
     handleChange = (selectedOption) => {
-        this.props.onChange(this.props.name, selectedOption.value);
+        this.props.onChange(this.props.name, selectedOption ? selectedOption.value : null);
         if (selectedOption) {
             console.log(`Selected: ${selectedOption.label}`);
         }
