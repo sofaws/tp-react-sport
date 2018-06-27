@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
-import { withProps, withHandlers, compose } from 'recompose';
+import { withProps, withHandlers, withStateHandlers, compose } from 'recompose';
 import {
     withScriptjs,
     withGoogleMap,
     GoogleMap,
     Marker,
+    InfoWindow,
 } from "react-google-maps";
 const { MarkerClusterer } = require("react-google-maps/lib/components/addons/MarkerClusterer");
-
+const infoWindowLabelEmphasis = {
+    fontSize: '1.2em',
+}
 
 export default compose(
     withProps({
@@ -29,6 +32,13 @@ export default compose(
             console.log(clickedMarkers)
         },
     }),
+    withStateHandlers(() => ({
+        isOpen: false,
+      }), {
+        onToggleOpen: ({ isOpen }) => () => ({
+          isOpen: !isOpen,
+        })
+      }),
     withScriptjs,
     withGoogleMap
 )(props =>
@@ -44,12 +54,25 @@ export default compose(
         >
             {props.markers.map(marker => {
 
-
                 console.log(marker.EquGpsX, marker.EquGpsY);
                 return <Marker
                     key={marker._id}
                     position={{ lat: parseFloat(marker.EquGpsY), lng: parseFloat(marker.EquGpsX) }}
-                />
+                    onClick={props.onToggleOpen}
+                    >
+                      {props.isOpen && <InfoWindow onCloseClick={props.onToggleOpen}>
+                        <div>
+                            <div style={infoWindowLabelEmphasis}><strong>{marker.Activité}</strong></div>
+                            <div><strong>Niveau :</strong> {marker.Niveau}</div>
+                            <div><strong>Accès PMR :</strong> {marker.EquAccesHandimAire}</div>
+                            <div><strong>Lieu :</strong></div>
+                            <div>{marker.EquNom} ({marker['Type d\'équipement']}) {marker.InsNom}</div>
+                            <div>{marker.InsNoVoie} {marker.InsLibelleVoie}, {marker.InsArondissement}</div>
+                            <div><strong>Surface du lieu :</strong> {marker.EquSurfaceEvolution}m</div>
+                        </div>
+
+                      </InfoWindow>}
+                </Marker>
             })}
         </MarkerClusterer>
     </GoogleMap>
