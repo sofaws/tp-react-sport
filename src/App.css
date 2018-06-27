@@ -14,7 +14,8 @@
 .App-title {
   font-size: 1.1em;
   border-bottom: dashed 1px #ddd;
-  padding-bottom: 10px;  
+  padding-bottom: 10px;
+  margin-bottom: 0;
 }
 
 .App-intro {

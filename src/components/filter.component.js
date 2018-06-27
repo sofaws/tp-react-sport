@@ -10,18 +10,25 @@ const filter = {
     position: 'absolute',
     borderRadius: 3,
     boxShadow: '0 3px 4px rgba(0,0,0,0.2)',
-    left: 30,
+    // left: 30,
     zIndex: 100,
     marginTop: 60,
     minWidth: '320px',
-    marginBottom: 30,
     paddingTop: '20px',
     paddingBottom: '20px',
     display: 'flex',
     flexDirection: 'column',
     flex: 1,
-    fontFamily: 'El Messiri'
+    fontFamily: 'El Messiri',
+    left: '-400px',
+    transform: 'translateX(430px)',
+    transition: 'transform .2s ease-in',
+    maxHeight: 'calc(100% - 130px)'
 };
+
+const filterContainer = {
+    overflowY: 'auto',
+}
 
 class Filter extends Component {
     state = {
@@ -43,11 +50,12 @@ class Filter extends Component {
             <div style={filter}>
                 <img src={logo} className="App-logo" alt="logo" />
                 <h1 className="App-title">We Analyse</h1>
-
-                <FilterDropdown nomDropdown='Département' />
-                <FilterDropdown nomDropdown='Type' />
-                <FilterDropdown nomDropdown='Ville' />
-                <FilterDropdown nomDropdown='Niveau' />
+                <div style={filterContainer}>
+                    <FilterDropdown nomDropdown='Ville' />
+                    <FilterDropdown nomDropdown='Département' />
+                    <FilterDropdown nomDropdown='Type' />
+                    <FilterDropdown nomDropdown='Niveau' />
+                </div>
             </div>
         );
     }

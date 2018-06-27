@@ -9,13 +9,14 @@ const filterCtn = {
     fontFamily: 'Roboto',
     flex: 1,    
     padding: '0 20px',
-    marginBottom: '15px',
+    marginTop: '15px',
 };
 
 const labelFilter = {
     flex: 1,
     textAlign: 'left',
     marginBottom: '5px',
+    fontSize: '0.9em'
 };
 
 const selectStyle = {
