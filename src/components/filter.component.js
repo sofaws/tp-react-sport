@@ -3,7 +3,7 @@ import logo from './../logo.svg';
 import './../App.css';
 
 const filter = {
-    backgroundColor: 'white',
+    backgroundColor: 'rgba(255,255,255,0.7)',
     position: 'absolute',
     borderRadius: 3,
     boxShadow: '0 3px 4px rgba(0,0,0,0.2)',
