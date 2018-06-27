@@ -15,7 +15,12 @@ export async function get(rsc) {
 }
 
 export async function getMarkers(rsc, params) {
-    return fetch(`${config.api}/${rsc}?city=${params.city}&activity=${params.activity}&level=${params.level}`, {
+    let filter = "";
+    if(params.city !== null) filter += "city=" + params.city + "&";
+    if(params.activity !== null) filter += "activity=" + params.activity + "&";
+    if(params.level !== null) filter += "level=" + params.level;
+
+    return fetch(`${config.api}/${rsc}?${filter}`, {
         headers,
         method: 'GET',
     })

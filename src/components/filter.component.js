@@ -106,8 +106,8 @@ class Filter extends Component {
                 <img src={logo} className="App-logo" alt="logo" />
                 <h1 className="App-title">We Analyse</h1>
                 <div style={filterContainer}>
-                    {/* <FilterDropdown value={this.props.city} name={"city"} onChange={this.props.onChange} options={this.state.cities} nomDropdown='Ville' />*/}
-                    <FilterDropdown value={this.props.department} name={"department"} onChange={this.props.onChange} options={this.state.departments} nomDropdown='Département' />
+                    <FilterDropdown value={this.props.city} name={"city"} onChange={this.props.onChange} options={this.state.cities} nomDropdown='Ville' />
+                    {/*<FilterDropdown value={this.props.department} name={"department"} onChange={this.props.onChange} options={this.state.departments} nomDropdown='Département' />*/}
                     <FilterDropdown value={this.props.activity} name={"activity"} onChange={this.props.onChange} options={this.state.activities} nomDropdown='Type' />
                     <FilterDropdown value={this.props.level} name={"level"} onChange={this.props.onChange} options={this.state.levels} nomDropdown='Niveau' />
 

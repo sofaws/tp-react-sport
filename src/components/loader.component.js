@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import LottieControl from "./velo.component";
 
 const loader = {
     backgroundColor: "rgba(0, 0, 0, 0.8)",
@@ -9,6 +10,7 @@ const loader = {
     left: 0,
     right: 0,
     display: "flex",
+    flexDirection: "column",
     justifyContent: 'center',
     alignItems: 'center',
    };
@@ -41,6 +43,7 @@ class Loader extends Component {
     render() {
         return (
             <div style={loader}>
+                <LottieControl />
                 <p style={message}>Les données sont en cours de chargement {this.state.points}</p>
             </div>
         );

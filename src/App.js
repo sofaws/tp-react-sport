@@ -8,10 +8,10 @@ class App extends Component {
     state = {
         gymnasium: [],
         isLoad: false,
-        city: "Brévart",
-        level: "Non défini",
-        activity: "Basket-Ball",
-        department: "Paris",
+        city: "Bréval",
+        level: null,
+        activity: null,
+        department: null,
     };
     async componentDidMount() {
       this.load();
