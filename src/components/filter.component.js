@@ -3,12 +3,22 @@ import logo from './../logo.svg';
 import './../App.css';
 
 const filter = {
-    flex: "25%",
-    backgroundColor: 'blue',
+    backgroundColor: 'white',
     position: 'absolute',
-    top: 100,
-    left: 50,
-    zIndex: 100
+    borderRadius: 3,
+    boxShadow: '0 3px 4px rgba(0,0,0,0.2)',
+    left: 30,
+    zIndex: 100,
+    // height: 'calc(100% - 130px)',
+    marginTop: 60,
+    minWidth: '250px',
+    marginBottom: 30,
+    paddingTop: '20px',
+    paddingBottom: '20px',
+    display: 'flex',
+    flexDirection: 'column',
+    flex: 1,
+    fontFamily: 'Galada'
 };
 
 class Filter extends Component {
