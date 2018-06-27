@@ -1,4 +1,3 @@
-import React, { Component } from 'react';
 import { withProps, withHandlers, compose } from 'recompose';
 import {
     withScriptjs,

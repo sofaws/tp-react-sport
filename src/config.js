@@ -1,4 +1,4 @@
 
 export default {
-    api: "https://b83d0269.ngrok.io/api",
+    api: "http://164.132.98.65:3000/api",
 }
