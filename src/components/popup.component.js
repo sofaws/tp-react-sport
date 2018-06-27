@@ -29,16 +29,28 @@ const popupTitle = {
     fontFamily: 'El Messiri',
 };
 
+const buttonSubmit = {
+    backgroundColor: 'rgba(240, 240, 240, 0.4)',
+    padding: '10px 15px',
+    fontFamily: 'Roboto',
+    borderRadius: '3px',
+    borderWidth: '1px',
+    marginTop: '15px',
+}
+
 class Popup extends Component {
 
     render() {
         return this.props.visible ?
             <div style={container} onClick={this.props.onClose}>
                 <div style={popup} onClick={(e) => e.stopPropagation()}>
-                    <div style={popupTitle}>Créer votre événement</div>
-                    <InputText name="Ville"/>
-                    <InputText name="Type d'événement"/>
-                    <InputText name="Niveau"/>
+                    <div style={popupTitle}>Ajouter votre événement</div>
+                    <form>
+                        <InputText name="Ville"/>
+                        <InputText name="Type d'événement"/>
+                        <InputText name="Niveau"/>
+                        <input style={buttonSubmit} type="submit" value="Ajouter"/>
+                    </form>
                 </div>
             </div>
             : null
