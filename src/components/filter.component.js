@@ -7,6 +7,7 @@ import 'react-select/dist/react-select.css';
 import logo from './../logo.svg';
 import './../App.css';
 import FilterDropdown from './filterDropdown.component';
+import {get} from "../services/equipments.service";
 
 const widthFilter = '320px';
 
@@ -60,13 +61,36 @@ const iconFilter = <Icon icon={ic_filter_list} />;
 const iconClose = <Icon icon={ic_close} />; 
 
 class Filter extends Component {
-    constructor(){
-        super();
 
-        this.state = {
-           show: true
-        }
+    state = {
+        selectedOption: '',
+        departments: [],
+        city: [],
+        level: [],
+        activities: [],
+        show: true,
+    };
+
+    async componentDidMount() {
+        const departments = await get('departments');
+        const city = await get('city');
+        const level = await get('level');
+        const activities = await get('activities');
+        this.setState({
+            departments,
+            city,
+            level,
+            activities
+        })
     }
+
+    handleChange = (selectedOption) => {
+        this.setState({ selectedOption });
+        // selectedOption can be null when the `x` (close) button is clicked
+        if (selectedOption) {
+            console.log(`Selected: ${selectedOption.label}`);
+        }
+    };
 
     toggleFilter(){
         this.setState({show: !this.state.show})
@@ -76,16 +100,18 @@ class Filter extends Component {
         // const { selectedOption } = this.state;
         let filter_class = this.state.show ? show : notShow;
         let icon_toggle = this.state.show ? iconClose : iconFilter;
+        const { selectedOption } = this.state;
+        console.log(this.state.level)
 
         return (
             <div style={{...filter, ...filter_class}}>  
                 <img src={logo} className="App-logo" alt="logo" />
                 <h1 className="App-title">We Analyse</h1>
                 <div style={filterContainer}>
-                    <FilterDropdown nomDropdown='Ville' />
-                    <FilterDropdown nomDropdown='Département' />
-                    <FilterDropdown nomDropdown="Type d'équipement" />
-                    <FilterDropdown nomDropdown='Niveau' />
+                    <FilterDropdown options={this.state.city} nomDropdown='Ville' />
+                    <FilterDropdown options={this.state.departments} nomDropdown='Département' />
+                    <FilterDropdown options={this.state.activities} nomDropdown="Type d'équipement" />
+                    <FilterDropdown options={this.state.level} nomDropdown='Niveau' />
                 </div>
                 <div style={toggleButton} onClick={this.toggleFilter.bind(this)}>
                     { icon_toggle}
