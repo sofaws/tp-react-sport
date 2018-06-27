@@ -39,26 +39,21 @@ const menuContainerStyle = {
 };
 
 class FilterDropdown extends Component {
-    state = {
-        selectedOption: '',
-    }
 
     handleChange = (selectedOption) => {
-        this.setState({ selectedOption });
+        this.props.onChange(this.props.name, selectedOption ? selectedOption.value : null);
         if (selectedOption) {
             console.log(`Selected: ${selectedOption.label}`);
         }
-    }
+    };
 
     render() {
-        const { selectedOption } = this.state;
-
         return (
             <div style={filterCtn}>
                 <div style={labelFilter}>{this.props.nomDropdown}</div>
                 <Select
                     name="form-field-name"
-                    value={selectedOption}
+                    value={this.props.value}
                     onChange={this.handleChange}
                     options={ this.props.options.map((element) => {
                         return { value: element, label: element }
