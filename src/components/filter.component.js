@@ -15,7 +15,6 @@ const filter = {
     position: 'absolute',
     borderRadius: '3px 0px 3px 3px',
     boxShadow: '0 3px 4px rgba(0,0,0,0.2)',
-    zIndex: 100,
     marginTop: 60,
     minWidth: widthFilter,
     paddingTop: '20px',
