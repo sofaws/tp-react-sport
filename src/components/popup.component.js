@@ -36,6 +36,7 @@ const buttonSubmit = {
     borderRadius: '3px',
     borderWidth: '1px',
     marginTop: '15px',
+    cursor: 'pointer',
 }
 
 class Popup extends Component {
