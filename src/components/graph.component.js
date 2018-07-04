@@ -1,23 +1,57 @@
 import React, { Component } from 'react';
+import { Icon } from 'react-icons-kit';
+import {ic_pie_chart} from 'react-icons-kit/md/ic_pie_chart'
+import {ic_close} from 'react-icons-kit/md/ic_close';
 import 'react-select/dist/react-select.css';
 import './../App.css';
 import {Doughnut} from 'react-chartjs-2';
 import _ from 'lodash';
 
+
+const widthFilter = '500px';
+
 const graph = {
     backgroundColor: 'rgba(255,255,255,1)',
-    position: 'absolute',
+    position: 'fixed',
     top: 0,
-    right: 200,
+    marginTop: 60,
+    right: '-500px',
     height: 400,
-    width: 500,
+    width: widthFilter,
     borderRadius: '3px 0px 3px 3px',
     boxShadow: '0 3px 4px rgba(0,0,0,0.2)',
     paddingTop: '20px',
     paddingBottom: '20px',
     zIndex: '10',
+    transition: 'transform .2s ease-in-out',
 };
 
+const show = {
+    transform: 'translateX(0px)'
+}
+
+const notShow = {
+    transform: 'translateX(-'+widthFilter+')'
+}
+
+const toggleButton = {
+    backgroundColor: '#FAFAFA',
+    width: '40px',
+    height: '40px',
+    borderRadius: '3px 0px 0px 3px',
+    position: 'absolute',
+    top: '0',
+    left: '-40px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    boxShadow: '-2px 1px 2px rgba(0,0,0,0.2)',
+    zIndex: '-1',
+    cursor: 'pointer'
+};
+
+const iconFilter = <Icon icon={ic_close} />;
+const iconClose = <Icon icon={ic_pie_chart} />;
 
 class Graph extends Component {
 
@@ -60,14 +94,30 @@ class Graph extends Component {
       }
     };
 
+    state = {
+        selectedOption: '',
+        show: true,
+    };
+
+
+    toggleFilter(){
+        this.setState({show: !this.state.show})
+    }
+
     render() {
+        let filter_class = this.state.show ? show : notShow;
+        let icon_toggle = this.state.show ? iconClose : iconFilter;
+        const { selectedOption } = this.state;
         const data = this.constructData();
         return (
-            <div style={graph}>
+            <div style={{...graph, ...filter_class}}>
                 <Doughnut data={data}
                           width={50}
                           height={40}
                 />
+                <div style={toggleButton} onClick={this.toggleFilter.bind(this)} >
+                    { icon_toggle}
+                </div>
             </div>
         );
     }

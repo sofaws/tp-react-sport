@@ -4,6 +4,7 @@
 .App {
   text-align: center;
   font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
 }
 
 .App-logo {
