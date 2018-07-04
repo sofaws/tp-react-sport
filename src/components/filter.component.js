@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Icon } from 'react-icons-kit';
 import {ic_filter_list} from 'react-icons-kit/md/ic_filter_list';
-import {ic_close} from 'react-icons-kit/md/ic_close'
+import {ic_close} from 'react-icons-kit/md/ic_close';
 import 'react-select/dist/react-select.css';
 import logo from './../logo.svg';
 import './../App.css';

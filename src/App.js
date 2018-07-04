@@ -5,6 +5,7 @@ import {get, getMarkers} from "./services/equipments.service";
 import Loader from "./components/loader.component";
 import Modal from "./components/modal.component";
 import Graph from "./components/graph.component";
+import Popup from "./components/popup.component";
 
 class App extends Component {
     state = {
@@ -15,6 +16,7 @@ class App extends Component {
         activity: null,
         department: null,
         modalVisible: false,
+        popupVisible: false,
         departments: [],
         cities: [],
         levels: [],
@@ -75,10 +77,12 @@ class App extends Component {
                   <div>+</div>
               </button>
 
-                  <div className="App-intro">
-                      <Map refresh={this.onChange} isMarkerShown markers={this.state.gymnasium}/>
-                  </div>
-              <Modal closeModal={() => this.setState({modalVisible: false })} refresh={this.onChange} visible={this.state.modalVisible} onClose={() => this.setState({ modalVisible: false })}/>
+                <div className="App-intro">
+                    <Map refresh={this.onChange} isMarkerShown markers={this.state.gymnasium}/>
+                </div>
+              <Modal openPopup={() => this.setState({popupVisible: true })} closeModal={() => this.setState({modalVisible: false })} refresh={this.onChange} visible={this.state.modalVisible} onClose={() => this.setState({ modalVisible: false })}/>
+              <Popup closePopup={() => this.setState({popupVisible: false })} visible={this.state.popupVisible} message="Marker créé avec succès" />
+
           </div>
     );
   }
