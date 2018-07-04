@@ -34,7 +34,7 @@ class InputText extends Component {
         return (
             <div style={inputContainer}>
                 <div style={label}>{this.props.name}</div>
-                <input type="text" style={input} placeholder={"Entrez un " + this.props.name.toLowerCase() + "..."} />
+                <input type="text" style={input} placeholder={"Entrez un"+ this.props.gender + " " + this.props.name.toLowerCase() + "..."} />
             </div>
         );
     }

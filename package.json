@@ -15,6 +15,7 @@
     "react-lottie": "^1.2.3",
     "react-scripts": "1.1.4",
     "react-select": "^1.2.1",
+    "react-switch": "^3.0.4",
     "recompose": "^0.27.1"
   },
   "scripts": {

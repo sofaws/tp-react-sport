@@ -1,5 +1,7 @@
 import React, {Component} from "react";
 import InputText from "./inputText.component";
+import Switch from "./switch.component";
+import SwitchComponent from "./switch.component";
 
 const container = {
     backgroundColor: "rgba(0, 0, 0, 0.4)",
@@ -18,7 +20,8 @@ const container = {
 const popup = {
     backgroundColor: 'white',
     padding: '30px 0',
-    maxHeight: '400px',  
+    maxHeight: '400px',
+    overflowY: 'auto',
     width: 400,
     borderRadius: "3px",
     boxShadow: '0 2px 100px rgba(0,0,0,0.6)',
@@ -47,9 +50,13 @@ class Popup extends Component {
                 <div style={popup} onClick={(e) => e.stopPropagation()}>
                     <div style={popupTitle}>Ajouter votre événement</div>
                     <form>
-                        <InputText name="Ville"/>
-                        <InputText name="Type d'événement"/>
-                        <InputText name="Niveau"/>
+                        <InputText gender="e" name="Ville"/>
+                        <InputText gender="" name="Type d'événement"/>
+                        <InputText gender="" name="Niveau"/>
+                        <InputText gender="e" name="Activité"/>
+                        <InputText gender="e" name="Latitude"/>
+                        <InputText gender="e" name="Longitude"/>
+                        <SwitchComponent gender="" name="Accès PMR"/>
                         <input style={buttonSubmit} type="submit" value="Ajouter"/>
                     </form>
                 </div>
