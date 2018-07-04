@@ -4,6 +4,7 @@ import Filter from "./components/filter.component";
 import {get, getMarkers} from "./services/equipments.service";
 import Loader from "./components/loader.component";
 import Modal from "./components/modal.component";
+import Graph from "./components/graph.component";
 
 class App extends Component {
     state = {
@@ -66,6 +67,7 @@ class App extends Component {
                   department={department}
                   city={city}
                   onChange={this.onChange}/>
+              <Graph markers={this.state.gymnasium} />
               <button onClick={() => this.setState({ modalVisible: true })}
                   style={{ position: 'fixed', bottom: '57px', right: '57px', width: '55px', height: '55px', borderRadius: '50%', border: '0px',
                   backgroundColor: '#ff4757', zIndex: '1', fontSize: '2em', color: 'white', textAlign: 'center', boxShadow: 'rgba(0, 0, 0, 0.2) 0px 3px 4px', outline: 0,

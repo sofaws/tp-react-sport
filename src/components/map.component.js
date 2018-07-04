@@ -64,7 +64,6 @@ export default compose(
             gridSize={60}
         >
             {props.markers.map((marker, index) => {
-                console.log(marker.EquGpsX, marker.EquGpsY);
                 return <Marker
                     key={marker._id}
                     position={{ lat: parseFloat(marker.EquGpsY), lng: parseFloat(marker.EquGpsX) }}
