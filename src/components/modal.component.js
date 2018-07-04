@@ -65,9 +65,10 @@ class Modal extends Component {
 
     submit = () => {
         console.log('submit');
-        this.props.visible = false;
         createMarker(this.state);
         alert("Votre marker a bien été créé.")
+        this.props.refresh();
+        this.props.closeModal();
     }
 
     render() {

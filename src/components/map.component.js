@@ -7,6 +7,7 @@ import {
     Marker,
     InfoWindow,
 } from "react-google-maps";
+import {deleteMarker} from "../services/equipments.service";
 const { MarkerClusterer } = require("react-google-maps/lib/components/addons/MarkerClusterer");
 const infoWindowLabelEmphasis = {
     fontSize: '1.2em',
@@ -63,7 +64,6 @@ export default compose(
             gridSize={60}
         >
             {props.markers.map((marker, index) => {
-
                 console.log(marker.EquGpsX, marker.EquGpsY);
                 return <Marker
                     key={marker._id}
@@ -78,7 +78,11 @@ export default compose(
                             <div><strong>Lieu :</strong> {marker.EquNom} ({marker['Type d\'équipement']}) {marker.InsNom}</div>
                             <div>{marker.InsNoVoie} {marker.InsLibelleVoie}, {marker.InsArrondissement}</div>
                             <div><strong>Surface du lieu :</strong> {marker.EquSurfaceEvolution}m</div>
-                        </div>  
+                            <button onClick={() => {
+                                deleteMarker(marker._id);
+                                props.refresh();
+                            }}>Supprimer</button>
+                        </div>
                       </InfoWindow>}
                 </Marker>
             })}
