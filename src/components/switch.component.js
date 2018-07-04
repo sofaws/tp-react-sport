@@ -23,24 +23,16 @@ const switchInput = {
 
 
 class SwitchComponent extends Component {
-    constructor() {
-      super();
-      this.state = { checked: false };
-      this.handleChange = this.handleChange.bind(this);
-    }
 
-    handleChange(checked) {
-        this.setState({ checked });
-    }
     render() {
         return (
             <div style={switchContainer}>
               <div style={label}>{this.props.name}</div>
               <Switch
                 style={switchInput}
-                onChange={this.handleChange}
-                checked={this.state.checked}
-                id="normal-switch"
+                checked={this.props.value}
+                onChange={(e) => this.props.onChange(e)}
+                value={this.props.value}
               />
             </div>
         );

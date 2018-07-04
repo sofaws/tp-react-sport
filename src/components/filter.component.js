@@ -99,7 +99,6 @@ class Filter extends Component {
         let filter_class = this.state.show ? show : notShow;
         let icon_toggle = this.state.show ? iconClose : iconFilter;
         const { selectedOption } = this.state;
-        console.log(this.state.level)
 
         return (
             <div style={{...filter, ...filter_class}}>

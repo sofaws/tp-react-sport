@@ -29,12 +29,17 @@ const input = {
 };
 
 class InputText extends Component {
-
     render() {
         return (
             <div style={inputContainer}>
                 <div style={label}>{this.props.name}</div>
-                <input type="text" style={input} placeholder={"Entrez un"+ this.props.gender + " " + this.props.name.toLowerCase() + "..."} />
+                <input 
+                    type="text"
+                    style={input}
+                    placeholder={"Entrez un"+ this.props.gender + " " + this.props.name.toLowerCase() + "..."}
+                    onChange={(e) => this.props.onChange(e.target.value)}
+                    value={this.props.value}
+                />
             </div>
         );
     }

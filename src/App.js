@@ -3,7 +3,7 @@ import Map from './components/map.component';
 import Filter from "./components/filter.component";
 import {getMarkers} from "./services/equipments.service";
 import Loader from "./components/loader.component";
-import Popup from "./components/popup.component";
+import Modal from "./components/modal.component";
 
 class App extends Component {
     state = {
@@ -54,7 +54,7 @@ class App extends Component {
                   <div className="App-intro">
                       <Map isMarkerShown markers={this.state.gymnasium}/>
                   </div>
-              <Popup visible={this.state.modalVisible} onClose={() => this.setState({ modalVisible: false })}/>
+              <Modal visible={this.state.modalVisible} onClose={() => this.setState({ modalVisible: false })}/>
           </div>
     );
   }

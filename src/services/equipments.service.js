@@ -14,6 +14,15 @@ export async function get(rsc) {
         .then(res => res);
 }
 
+export async function createMarker(data) {
+    return fetch(`${config.api}/gymnasium`, {
+        headers,
+        method: 'POST',
+        body: JSON.stringify(data)
+    })
+        .then(res => res);
+}
+
 export async function getMarkers(rsc, params) {
     let filter = "";
     if(params.city !== null) filter += "city=" + params.city + "&";
