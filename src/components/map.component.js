@@ -15,7 +15,17 @@ const infoWindowLabelEmphasis = {
 }
 
 const infoWindow = {
-    textAlign: 'left'
+    textAlign: 'left',
+}
+
+const button = {
+    backgroundColor: '#ddd',
+    padding: '5px 10px',
+    border: 'none',
+    cursor: 'pointer',
+    borderRadius: '3px', 
+    marginTop: '10px',
+    textAlign: 'right',
 }
 
 export default compose(
@@ -78,7 +88,7 @@ export default compose(
                             <div><strong>Lieu :</strong> {marker.EquNom} ({marker['Type d\'équipement']}) {marker.InsNom}</div>
                             <div>{marker.InsNoVoie} {marker.InsLibelleVoie}, {marker.InsArrondissement}</div>
                             <div><strong>Surface du lieu :</strong> {marker.EquSurfaceEvolution}m</div>
-                            <button onClick={() => {
+                            <button style={button} onClick={() => {
                                 deleteMarker(marker._id);
                                 props.refresh();
                             }}>Supprimer</button>
