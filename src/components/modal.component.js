@@ -64,14 +64,13 @@ class Modal extends Component {
     }
 
     submit = () => {
-        console.log('submit');
-        this.props.visible = false;
         createMarker(this.state);
-        alert("Votre marker a bien été créé.")
+        this.props.refresh();
+        this.props.closeModal();
+        this.props.openPopup();
     }
 
     render() {
-        console.log(this.state)
         return this.props.visible ?
             <div style={container} onClick={this.props.onClose}>
                 <div style={popup} onClick={(e) => e.stopPropagation()}>

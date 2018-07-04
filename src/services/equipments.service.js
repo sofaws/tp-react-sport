@@ -23,6 +23,14 @@ export async function createMarker(data) {
         .then(res => res);
 }
 
+export async function deleteMarker(id) {
+    return fetch(`${config.api}/gymnasium?id=${id}`, {
+        headers,
+        method: 'DELETE',
+    })
+        .then(res => res);
+}
+
 export async function getMarkers(rsc, params) {
     let filter = "";
     if(params.city !== null) filter += "city=" + params.city + "&";
