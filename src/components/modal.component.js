@@ -71,7 +71,6 @@ class Modal extends Component {
     }
 
     render() {
-        console.log(this.props.state);
         return this.props.visible ?
             <div style={container} onClick={this.props.onClose}>
                 <div style={popup} onClick={(e) => e.stopPropagation()}>
