@@ -71,6 +71,7 @@ class Modal extends Component {
     }
 
     render() {
+        console.log(this.props.state);
         return this.props.visible ?
             <div style={container} onClick={this.props.onClose}>
                 <div style={popup} onClick={(e) => e.stopPropagation()}>
@@ -82,7 +83,7 @@ class Modal extends Component {
                         <InputText value={this.state.EquGpsX} onChange={(value) => this.onChange('EquGpsX', value)} gender="e" name="Latitude"/>
                         <InputText value={this.state.EquGpsY} onChange={(value) => this.onChange('EquGpsY', value)} gender="e" name="Longitude"/>
                         <SwitchComponent value={this.state.EquAccesHandimAire} onChange={(value) => this.onChange('EquAccesHandimAire', value)} gender="" name="Accès PMR"/>
-                    <input style={buttonSubmit} value="Ajouter" onClick={() => this.submit()} />
+                    <input type="submit" style={buttonSubmit} value="Ajouter" onClick={() => this.submit()} />
                 </div>
             </div>
             : null
